@@ -1,2 +1,3 @@
 # EM
-My EM software
+
+An electromagnetic simulator

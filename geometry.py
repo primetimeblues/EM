@@ -7,7 +7,8 @@ class Set:
 class Material:
   'Represents a material definition'
   
-  def __init__(self,epsilon,mu,conductivity):
+  def __init__(self,name,epsilon,mu,conductivity):
+    self.name = name
     self.epsilon = epsilon
     self.mu = mu
     self.conductivity = conductivity
@@ -42,7 +43,7 @@ class Domain(Rectangle):
   'The whole domain, within which all the objects exist (except possibly PML boundaries)'
   
   def __init__(self,xmin,xmax,ymin,ymax,zmin,zmax):
-    vacuum = Material(1,1,0)
+    vacuum = Material('vacuum',1,1,0)
     Rectangle.__init__(self,xmin,xmax,ymin,ymax,zmin,zmax,vacuum)
 
 class Simulation:
@@ -64,3 +65,4 @@ class Simulation:
     self.domain = Domain(xmin,xmax,ymin,ymax,zmin,zmax)
     self.objects = []
     self.materials = []
+    self.mesh = None

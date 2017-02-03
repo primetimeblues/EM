@@ -4,16 +4,24 @@ class Set:
   def __init__(self,dimension):
     self.dimension = dimension
 
+class Material:
+  'Represents a material definition'
+  
+  def __init__(self,epsilon,mu,conductivity):
+    self.epsilon = epsilon
+    self.mu = mu
+    self.conductivity = conductivity
+    
 class Object(Set):
   'Material objects, like with material properties'
   
-  def __init__(self,dimension):
+  def __init__(self,dimension,material):
     Set.__init__(self,dimension)
 
 class Rectangle(Object):
   '3D Rectangular prism, or 2D rectangle'
   
-  def __init__(self,xmin,xmax,ymin,ymax,zmin,zmax):
+  def __init__(self,xmin,xmax,ymin,ymax,zmin,zmax,material):
     
     if xmin == xmax or ymin == ymax or zmin == zmax:
       dimension = 2
@@ -27,12 +35,15 @@ class Rectangle(Object):
     self.ymax = ymax
     self.zmin = zmin
     self.zmax = zmax
+    
+    self.material = material
 
 class Domain(Rectangle):
   'The whole domain, within which all the objects exist (except possibly PML boundaries)'
   
   def __init__(self,xmin,xmax,ymin,ymax,zmin,zmax):
-    Rectangle.__init__(self,xmin,xmax,ymin,ymax,zmin,zmax)
+    vacuum = Material(1,1,0)
+    Rectangle.__init__(self,xmin,xmax,ymin,ymax,zmin,zmax,vacuum)
 
 class Simulation:
   'Collection of simulation parameters, geometric objects, etc.'
@@ -52,3 +63,4 @@ class Simulation:
     
     self.domain = Domain(xmin,xmax,ymin,ymax,zmin,zmax)
     self.objects = []
+    self.materials = []

@@ -3,15 +3,6 @@ class Set:
   
   def __init__(self,dimension):
     self.dimension = dimension
-
-class Material:
-  'Represents a material definition'
-  
-  def __init__(self,name,epsilon,mu,conductivity):
-    self.name = name
-    self.epsilon = epsilon
-    self.mu = mu
-    self.conductivity = conductivity
     
 class Object(Set):
   'Material objects, like with material properties'

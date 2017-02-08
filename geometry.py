@@ -11,6 +11,7 @@ class Object(Set):
   
   def __init__(self,dimension,material):
     Set.__init__(self,dimension)
+    self.material = material
 
 class Rectangle(Object):
   '3D Rectangular prism, or 2D rectangle'
@@ -21,7 +22,7 @@ class Rectangle(Object):
       dimension = 2
     else:
       dimension = 3
-    Object.__init__(self,dimension)
+    Object.__init__(self,dimension,material)
     
     self.xmin = xmin
     self.xmax = xmax
@@ -29,14 +30,12 @@ class Rectangle(Object):
     self.ymax = ymax
     self.zmin = zmin
     self.zmax = zmax
-    
-    self.material = material
 
 class Domain(Rectangle):
   'The whole domain, within which all the objects exist (except possibly PML boundaries)'
   
   def __init__(self,xmin,xmax,ymin,ymax,zmin,zmax):
-    vacuum = Material('vacuum',1,1,0)
+    vacuum = materials.materials.library['vacuum']
     Rectangle.__init__(self,xmin,xmax,ymin,ymax,zmin,zmax,vacuum)
 
 class Simulation:

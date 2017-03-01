@@ -1,3 +1,3 @@
-import geometry
+import setup
 
-simulation = geometry.Simulation(0,5)
+simulation = setup.Simulation(0,5)

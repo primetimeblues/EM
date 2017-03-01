@@ -7,14 +7,17 @@ class Material:
     self.mu = mu
     self.conductivity = conductivity
 
-class MaterialLibrary:
+class Collection:
   'Collection of possible materials'
   
   def __init__(self):
-    self.library = {}
+    self.dict = {}
     
   def addmat(self, material):
-    self.library[material.name] = material
+    self.dict[material.name] = material
+
+  def lookup(self, name):
+    return(self.dict[name])
     
-materials = MaterialLibrary()
-materials.addmat(Material('vacuum',1,1,0))
+library = Collection()
+library.addmat(Material('vacuum',1,1,0))

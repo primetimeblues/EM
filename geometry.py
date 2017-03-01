@@ -35,7 +35,7 @@ class Domain(Rectangle):
   'The whole domain, within which all the objects exist (except possibly PML boundaries)'
   
   def __init__(self,xmin,xmax,ymin,ymax,zmin,zmax):
-    vacuum = materials.library.lookup['vacuum']
+    vacuum = materials.library.lookup('vacuum')
     Rectangle.__init__(self,xmin,xmax,ymin,ymax,zmin,zmax,vacuum)
 
 class Simulation:

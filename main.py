@@ -1,2 +1,6 @@
+import importlib
+
 filename = input('Enter the input file: ')
-execfile(filename)
+
+inputscript = importlib.import_module(filename)
+simulation = inputscript.simulation

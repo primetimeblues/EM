@@ -16,7 +16,7 @@ class Simulation:
     xmin,ymin,zmin = -qwl,-qwl,-qwl
     xmax,ymax,zmax = qwl,qwl,qwl
     
-    self.domain = Domain(xmin,xmax,ymin,ymax,zmin,zmax)
+    self.domain = geometry.Domain(xmin,xmax,ymin,ymax,zmin,zmax)
     self.objects = []
     self.materials = []
     self.mesh = None

@@ -1,3 +1,5 @@
+# Simulation parameters other than the geometry
+
 import geometry
 
 class Simulation:

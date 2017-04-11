@@ -8,6 +8,13 @@ class Set:
   def __init__(self,dimension):
     self.dimension = dimension
     
+class Point(Set):
+  'A single point in space'
+  
+  def __init__(self,position):
+    Set.__init__(self,0)
+    self.position = position
+    
 class Object(Set):
   'Material objects, like with material properties'
   
@@ -15,6 +22,8 @@ class Object(Set):
     Set.__init__(self,dimension)
     self.material = material
 
+
+    
 class Rectangle(Object):
   '3D Rectangular prism, or 2D rectangle'
   

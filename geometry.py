@@ -1,3 +1,5 @@
+# Geometry related functions and definitions
+
 import materials
 
 class Set:

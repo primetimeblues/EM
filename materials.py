@@ -1,3 +1,5 @@
+# Defines material properties, includes the library of materials
+
 class Material:
   'Represents a material definition'
   
